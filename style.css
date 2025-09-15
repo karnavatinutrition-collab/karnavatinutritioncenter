@@ -28,19 +28,45 @@ body {
 .logo {
   height: 60px;
 }
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-.nav-links li a {
-  color: #1a5d3c;
-  text-decoration: none;
-  font-weight: bold;
-}
 .menu-toggle {
-  display: none;
   cursor: pointer;
+  font-size: 1.8rem;
+  color: #1a5d3c;
+}
+
+/* SIDEBAR MENU */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #1a5d3c;
+  color: white;
+  transition: right 0.3s ease;
+  padding-top: 60px;
+  z-index: 2000;
+}
+.sidebar.show {
+  right: 0;
+}
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.sidebar-links li a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+.sidebar-links li a:hover {
+  background: rgba(255,255,255,0.1);
 }
 
 /* HERO VIDEO SECTION */
@@ -55,20 +81,20 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* Default: desktop/laptop ke liye */
+  object-fit: cover;  /* Always cover screen */
   z-index: -1;
-  background: black;
 }
 .hero-overlay {
   position: absolute;
-  bottom: 35%;               /* Position text near the bottom */
-  left: 400px;
+  bottom: 30%;
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
   color:#FFFFFF;
   background: rgba(0,0,0,0.4);
-  padding: 2rem 3rem;
+  padding: 1.5rem 2rem;
   border-radius: 8px;
+  max-width: 90%;
 }
 
 /* SECTIONS */
@@ -162,32 +188,13 @@ footer {
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #1a5d3c;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-  }
-  .nav-links.show {
-    display: flex;
-  }
-  .menu-toggle {
-    display: block;
-    color:#FFFFFF;
-    font-size: 1.5rem;
-  }
   .hero-overlay {
     width: 90%;
-    padding: 1.5rem;
+    padding: 1rem;
     font-size: 0.9rem;
-    left: 50%;              /* center align text on mobile */
-    transform: translateX(-50%);
+    bottom: 20%;
   }
-  .hero-video {
-    object-fit: contain;    /* Mobile pe pura video dikhega */
-    background: black;      /* Extra space fill with black */
+  .logo {
+    height: 45px;
   }
 }
