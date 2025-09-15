@@ -1,9 +1,14 @@
 // ===== Sidebar Toggle =====
 const sidebar = document.getElementById('sidebar');
 const menuToggle = document.getElementById('menu-toggle');
+const closeBtn = document.getElementById('close-btn');
 
 menuToggle.addEventListener('click', () => {
   sidebar.classList.toggle('show');
+});
+
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.remove('show');
 });
 
 // Close sidebar when link clicked
