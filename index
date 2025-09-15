@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karnavati Nutrition Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <img src="images/logo-knc.png" alt="KNC Logo" class="logo" />
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+  </header>
+
+  <section id="home" class="hero fade-in">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="videos/hero-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay fade-in-delay">
+      <h1>Welcome to Karnavati Nutrition Center</h1>
+      <p>Personalized nutrition and wellness guidance for a balanced life.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section fade-in">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Karnavati Nutrition Centre offers personalized and holistic nutrition guidance to help individuals achieve their health and fitness goals. Whether you’re aiming for weight loss, weight gain, increased energy, digestive wellness, skin care, joint care, heart health, or overall wellness for men and women — we support you through natural, medicine-free methods.
+      </p>
+      <p>
+       Our face-to-face consultations provide each client with individualized attention, practical wellness tips, and lifestyle guidance tailored to their unique needs. We are dedicated to helping you lead a healthier, more energetic life without relying on medications.
+      </p>
+    </div>
+  </section>
+
+  <section id="services" class="section alt fade-in">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/3736/3736604.png" alt="Weight Management icon">
+          <h3>Weight Management</h3>
+          <p>Personalized plans to help you achieve and maintain a healthy lifestyle naturally.</p>
+        </div>
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="Digestive Wellness icon">
+          <h3>Digestive Wellness</h3>
+          <p>Support your body’s natural balance for better comfort and energy.</p>
+        </div>
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2904/2904991.png" alt="Energy & Vitality icon">
+          <h3>Energy & Vitality</h3>
+          <p>Boost your daily energy levels and feel active and vibrant.</p>
+        </div>
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/3082/3082048.png" alt="Skin & Beauty Care icon">
+          <h3>Skin & Beauty Care</h3>
+          <p>Enhance your natural glow and maintain healthy, radiant skin.</p>
+        </div>
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png" alt="Movement & Flexibility icon">
+          <h3>Movement & Flexibility</h3>
+          <p>Improve mobility and stay active through natural guidance.</p>
+        </div>
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Heart & Fitness Support icon">
+          <h3>Heart & Fitness Support</h3>
+          <p>Promote overall wellness and vitality with a balanced lifestyle.</p>
+        </div>
+        <div class="service slide-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2965/2965539.png" alt="Overall Wellness icon">
+          <h3>Overall Wellness</h3>
+          <p>Holistic guidance for a balanced, energetic, and healthy life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="section fade-in">
+    <div class="container">
+      <h2>Why Choose Us</h2>
+      <ul class="why-list">
+        <li><strong>Personalized Guidance:</strong> Every plan is tailored to your lifestyle and goals.</li>
+        <li><strong>Holistic & Natural:</strong> We focus on wellness and nutrition without using any medicines.</li>
+        <li><strong>Face-to-Face Consultations:</strong> Direct interaction for effective support and attention.</li>
+        <li><strong>Trusted & Professional:</strong> Experienced team dedicated to your well-being.</li>
+        <li><strong>Sustainable Results:</strong> Practical advice for long-term, balanced health.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt fade-in">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Email: Karnavatinutrition@gmail.com<br>
+         Phone: +91-7016037622,9909403898<br>
+         Address: Shop No. 229, Second Floor, Rashmi South Park  
+                  Opp. Karnavati-3, Siddhi Floora & Divine life School  
+                  Narol, Ahmedabad – 382405
+
+      </p>
+     
+</section>
+      <form class="contact-form slide-up">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Karnavati Nutrition Center. Icons by Flaticon authors.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
