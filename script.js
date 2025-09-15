@@ -1,33 +1,33 @@
-// ====== NAVBAR TOGGLE ======
-const toggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+// ===== Sidebar Toggle =====
+const sidebar = document.getElementById('sidebar');
+const menuToggle = document.getElementById('menu-toggle');
 
-toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('show');
 });
 
-// ====== CONTACT FORM ======
+// Close sidebar when link clicked
+document.querySelectorAll('.sidebar-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    sidebar.classList.remove('show');
+  });
+});
+
+// ===== Contact Form (WhatsApp) =====
 const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  // Collect form data
   const name = form.querySelector('input[type=text]').value;
   const email = form.querySelector('input[type=email]').value;
   const message = form.querySelector('textarea').value;
 
-  // WhatsApp number (without +)
-  const phone = '917016037622';
-
-  // Final message
+  const phone = '917016037622'; // WhatsApp number without +
   const text = encodeURIComponent(
     `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
   );
 
-  // Open WhatsApp chat
   window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-
-  // Reset form after sending
   form.reset();
 });
