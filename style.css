@@ -55,8 +55,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* Key: makes video responsive */
+  object-fit: cover;        /* Default: desktop/laptop ke liye */
   z-index: -1;
+  background: black;
 }
 .hero-overlay {
   position: absolute;
@@ -182,5 +183,11 @@ footer {
     width: 90%;
     padding: 1.5rem;
     font-size: 0.9rem;
+    left: 50%;              /* center align text on mobile */
+    transform: translateX(-50%);
+  }
+  .hero-video {
+    object-fit: contain;    /* Mobile pe pura video dikhega */
+    background: black;      /* Extra space fill with black */
   }
 }
