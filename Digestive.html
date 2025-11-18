@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Upper Digestive Health Program | Karnavati Nutrition Center</title>
+  <meta name="description" content="Upper Digestive Health Program - Karnavati Nutrition Center. Natural, medicine-free digestive support: reduce acidity, bloating, constipation and improve gut comfort." /> 
+  <style>
+   /* ---------- Global ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --primary: #1a5d3c;    /* from Weight page */
+  --accent: #44a047;     /* hover green */
+  --glass: rgba(255, 255, 255, 0.85);
+  --glass-dark: rgba(10, 10, 10, 0.45);
+  --bg-light: linear-gradient(to bottom, #fefaf0, #fff);
+  --bg-dark: linear-gradient(to bottom, #0e1813, #1b1b1b);
+  --text-dark: #223;
+  --text-light: #fff;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+body {
+  background: var(--bg-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  transition: background 0.35s, color 0.35s;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  height: 80px;
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  border-radius: 36px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+.logo img {
+  height: 34px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.desktop-nav .nav-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--accent);
+}
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.9rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+@media (max-width: 780px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+/* ---------- Mobile Sidebar ---------- */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background: var(--primary);
+  color: #fff;
+  padding-top: 70px;
+  transition: right 0.28s;
+  z-index: 1300;
+}
+.mobile-sidebar ul {
+  list-style: none;
+  padding: 0 20px;
+}
+.mobile-sidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 0;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  z-index: 1200;
+}
+/* ---------- Hero / Poster ---------- */
+.hero {
+  margin-top: 100px;
+  padding: 28px 0;
+  background: linear-gradient(180deg, rgba(26, 93, 60, 0.04), transparent);
+}
+.poster {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.poster-left {
+  flex: 1;
+}
+.poster-right {
+  flex: 1;
+}
+.poster h1 {
+  color: var(--primary);
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+.poster p {
+  color: #41555f;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.poster .poster-img {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(20, 60, 80, 0.06);
+}
+/* ---------- Sections & Cards ---------- */
+.section {
+  padding: 64px 0;
+  text-align: center;
+}
+.section h2 {
+  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+/* Symptoms Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.card {
+  background: var(--card-bg);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.35s, box-shadow 0.35s, opacity 0.6s;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.card.animate-up {
+  transform: translateY(14px) scale(0.98);
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+.card img,
+.card svg {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  display: block;
+}
+.card h3 {
+  font-size: 18px;
+  color: #2575fc;
+  margin-bottom: 8px;
+}
+.card p {
+  font-size: 0.95rem;
+  color: #4a5558;
+}
+/* Text Blocks */
+.text-block {
+  max-width: 1000px;
+  margin: 16px auto;
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.text-block h4 {
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+/* Tips / Recipes */
+.list-box {
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: left;
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+.list-box ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+.list-box li {
+  padding: 10px 0;
+  color: #35494d;
+}
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.recipe {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s;
+}
+.recipe:hover {
+  transform: translateY(-6px);
+}
+.recipe h4 {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+.recipe p {
+  font-size: 0.95rem;
+  color: #405257;
+}
+.recipe-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 8px;
+}
+/* ---------- Contact Box ---------- */
+.contact-wrap {
+  max-width: 760px;
+  margin: 20px auto; /* Slightly more balanced top margin */
+  padding: 25px 30px; /* More padding for comfort */
+  border-radius: 16px; /* Slightly smoother corners */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.contact-wrap:hover {
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.15);
+}
+.contact-wrap label {
+  display: block;
+  font-weight: 600;
+  margin: 10px 0 6px; /* Adjusted spacing for labels */
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+.contact-wrap input,
+.contact-wrap textarea {
+  width: 100%;
+  padding: 14px 16px; /* More comfortable padding */
+  border-radius: 12px; /* Slightly rounded inputs */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-dark);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-wrap input:focus,
+.contact-wrap textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(68, 160, 71, 0.3);
+}
+.contact-wrap textarea {
+  min-height: 120px; /* Better space for messages */
+  resize: vertical;  /* Allow vertical resizing only */
+}
+.contact-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+.whatsapp-btn {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+/* Floating WhatsApp */
+.float-wa {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1400;
+}
+/* Footer */
+footer {
+  padding: 18px;
+  background: var(--glass);
+  text-align: center;
+  margin: 28px 20px 30px;
+  border-radius: 10px;
+}
+p.email {
+  margin-top: 12px;
+  color: #455;
+}
+/* ---------- Dark Mode ---------- */
+body.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+body.dark-mode .navbar {
+  background: var(--glass-dark);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .card,
+body.dark-mode .list-box,
+body.dark-mode .contact-wrap,
+body.dark-mode .recipe {
+  background: #1f1f1f;
+  color: #e7f5f2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.63);
+}
+body.dark-mode .text-block {
+  background: #131516;
+  color: #dfeff2;
+}
+body.dark-mode .nav-links a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+body.dark-mode .nav-links a:hover {
+  color: var(--accent);
+}
+body.dark-mode h2 {
+  color: #a3d9a5;
+}
+body.dark-mode .recipe h4 {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+body.dark-mode .recipe h4:hover {
+  color: var(--accent);
+}
+body.dark-mode .recipe p {
+  color: #405257;
+  transition: color 0.3s ease;
+}
+body.dark-mode .recipe p:hover {
+  color: #fff;
+}
+body.dark-mode .card h3 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+body.dark-mode .card h3:hover {
+  color: #2575fc;
+}
+body.dark-mode .card p {
+  color: #4a5558;
+  transition: color 0.3s ease;
+}
+body.dark-mode .card p:hover {
+  color: #fff;
+}
+body.dark-mode .poster p {
+  color: #41555f;
+  transition: color 0.3s ease;
+}
+body.dark-mode .poster p:hover {
+  color: #fff;
+}
+body.dark-mode .contact-wrap label {
+  color: #ddd;
+}
+body.dark-mode .list-box li {
+  color: #35494d;
+  transition: color 0.3s ease;
+}
+body.dark-mode .list-box li:hover {
+  color: #fff;
+}
+body.dark-mode .theme-toggle {
+  border-color: #95df98;
+  color: #95df98;
+}
+body.dark-mode footer {
+  background: #121212;
+  color: #9adf99;
+}
+body.dark-mode p.email {
+  color: #455;
+  transition: color 0.3s ease;
+}
+body.dark-mode p.email:hover {
+  color: #fff;
+}
+/* Dark mode input & textarea text color */
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #1f1f1f;   /* optional: match card background */
+  color: #fff;            /* text typed by user will be white */
+  border: 1px solid #555; /* optional: make border visible in dark mode */
+}
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #aaa;            /* placeholder text color in dark mode */
+}
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 980px) {
+  .poster {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .poster-right {
+    order: -1;
+  }
+  .poster h1 {
+    font-size: 26px;
+  }
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-wrap input,
+  .contact-wrap textarea {
+    font-size: 0.95rem;
+  }
+}
+/* Hide desktop nav links on small screens */
+@media (max-width: 780px) {
+  .desktop-nav .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block; /* show hamburger */
+  }
+}
+@media (max-width: 520px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+  }
+  .card-grid,
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+  .poster p {
+    font-size: 0.95rem;
+  }
+  .header {
+    padding: 12px;
+  }
+  .navbar {
+    left: 10px;
+    right: 10px;
+  }
+}
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo"><img src="logo-knc.webp" alt="KNC Logo"></div>
+    <nav class="desktop-nav">
+      <ul class="nav-links">
+        <li><a href="Karnavatinutrtitioncenter.html#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#symptoms">Symptoms</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="right-controls">
+      <button id="dom" class="theme-toggle">🌙</button>
+      <div id="mobile-menu" class="menu-toggle">☰</div>
+    </div>
+  </header>
+  <!-- Mobile sidebar -->
+  <div id="mobile-sidebar" class="mobile-sidebar">
+    <div id="close-sidebar" style="position:absolute;left:18px;top:18px;font-size:24px;cursor:pointer;color:#fff">×</div>
+    <ul>
+      <li><a href="Karnavatinutrtitioncenter.html#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#symptoms">Symptoms</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div id="overlay"></div>
+  <!-- HERO -->
+  <section class="hero container" id="hero">
+    <div class="poster">
+      <div class="poster-left">
+        <h1>Upper Digestive Health Program</h1>
+        <p>Specialized plan to calm acidity, reduce bloating, strengthen digestion and restore gut comfort — 100% natural, medicine-free approaches with guided food plans and simple home remedies.</p>
+        <p style="margin-top:12px"><strong>Program length:</strong> 7–28 days </p>
+      </div>
+      <div class="poster-right poster-img">
+        <img id="digestivePoster" src="dig.jpg" alt="Digestive Health Poster">
+      </div>
+    </div>
+  </section>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Karnavati Nutrition Center</h2>
+      <div class="text-block">
+        <p><strong>Karnavati Nutrition Center</strong> provides evidence-based, medicine-free digestive programs tailored to your symptoms and lifestyle. We focus on food combinations, meal timing, natural beverages and simple daily routines to reset digestion, improve bowel habits and increase nutrient absorption.</p>
+      </div>
+    </div>
+  </section>
+  <!-- SYMPTOMS -->
+  <section id="symptoms" class="section">
+    <div class="container">
+      <h2>Common Digestive Symptoms</h2>
+      <div class="card-grid" id="symptomGrid">
+        <div class="card animate-up"><img src="acidity.svg" alt="Acidity"><h3>Acidity / Heartburn</h3><p>Burning sensation, sour belching, discomfort after meals.</p></div>
+        <div class="card animate-up"><img src="bloating.svg" alt="Bloating"><h3>Bloating</h3><p>Fullness or gas after eating, swollen belly and discomfort.</p></div>
+        <div class="card animate-up"><img src="gas.svg" alt="Gas"><h3>Gas / Flatulence</h3><p>Excessive gas, burping or passing wind frequently.</p></div>
+        <div class="card animate-up"><img src="constipation.svg" alt="Constipation"><h3>Constipation</h3><p>Hard stools, difficulty passing motions or infrequent bowel movements.</p></div>
+        <div class="card animate-up"><img src="ibs.svg" alt="IBS"><h3>IBS-like Symptoms</h3><p>Alternating constipation/diarrhea, cramping abdominal pain.</p></div>
+        <div class="card animate-up"><img src="nausea.svg" alt="Nausea"><h3>Nausea / Heaviness</h3><p>Feeling sick, heaviness after meals and low appetite.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- TIPS -->
+  <section id="tips" class="section">
+    <div class="container">
+      <h2>Natural Tips for Better Digestion</h2>
+      <div class="list-box">
+        <ul>
+          <li>Start each morning with warm water or jeera water — helps stimulate digestion.</li>
+          <li>Eat in small portions, chew thoroughly and avoid heavy food combinations (e.g., milk + fruits).</li>
+          <li>Include probiotic foods — curd, buttermilk, fermented dosa/idli (in moderation).</li>
+          <li>Avoid deep-fried, very spicy and late-night heavy meals; prefer light, cooked dinners.</li>
+          <li>Walk 15–20 minutes after meals to help gastric motility; keep hydrated.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- DIET (Male) -->
+  <section id="diet" class="section">
+    <div class="container">
+      <h2>Indian Digestive-Friendly Meal Ideas (Male)</h2>
+      <div class="list-box">
+        <ul>
+          <li><strong>Morning:</strong> Jeera water + Poha / Upma with veggies — light and fibrous.</li>
+          <li><strong>Mid-morning Snack:</strong> Ripe papaya or banana for enzymatic support.</li>
+          <li><strong>Lunch:</strong> Khichdi with ghee + a small bowl of curd — easy on stomach and nourishing.</li>
+          <li><strong>Evening:</strong> Sprouts chaat or roasted chana and herbal tea (avoid heavy fried snacks).</li>
+          <li><strong>Dinner:</strong> Moong dal soup / vegetable daliya — soft, warm and easily digestible.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- RECIPES -->
+<section id="recipes" class="section">
+  <div class="container">
+    <h2>Simple Recipes</h2>
+    <div class="recipe-grid">
+      <div class="recipe">
+        <img src="jeera.png" alt="Jeera Water" class="recipe-img">
+        <h4>Jeera Water</h4>
+        <p>Boil 1 tsp cumin seeds in water for 5 min — strain and drink warm in the morning.</p>
+      </div>
+      <div class="recipe">
+        <img src="khichidi.png" alt="Khichdi" class="recipe-img">
+        <h4>Khichdi (Basic)</h4>
+        <p>Cook rice + moong dal with turmeric, a pinch of asafoetida & tempered ghee — add steamed veggies.</p>
+      </div>
+      <div class="recipe">
+        <img src="moong.png" alt="Moong Dal Soup" class="recipe-img">
+        <h4>Moong Dal Soup</h4>
+        <p>Boil yellow moong dal until soft, blend slightly, season with cumin & coriander — serve warm.</p>
+      </div>
+      <div class="recipe">
+        <img src="pappya.png" alt="Papaya Bowl" class="recipe-img">
+        <h4>Papaya Bowl</h4>
+        <p>Fresh ripe papaya cubes with a squeeze of lemon — easy and enzyme-rich snack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- CONTACT / APPOINTMENT (glassmorphism) -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Book Appointment</h2>
+      <div class="contact-wrap">
+        <form id="appointmentForm">
+          <label for="name">Full Name</label>
+          <input id="name" class="input" name="name" placeholder="Your name" required />
+          <label for="phone">Mobile Number</label>
+          <input id="phone" class="input" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required />
+          <label for="msg">Message / Short Symptoms</label>
+          <textarea id="msg" class="textarea" name="msg" placeholder="Briefly describe your concern (optional)"></textarea>
+          <div class="contact-actions">
+            <button type="submit" class="btn">Request Appointment</button>
+            <a id="waOpen" class="whatsapp-btn" href="#" target="_blank">Chat on WhatsApp</a>
+          </div>
+        </form>
+        <p class="email">Email: karnavatinutrition@gmail.com | Phone: +91 7016037622</p>
+      </div>
+    </div>
+  </section>
+  <!-- Floating WhatsApp -->
+  <a class="float-wa" id="floatWa" href="#" target="_blank" title="Chat on WhatsApp">📱</a>
+  <footer>© 2025 Karnavati Nutrition Center</footer>
+  <script>
+    // Sidebar toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const closeSide = document.getElementById('close-sidebar');
+    const overlay = document.getElementById('overlay');
+    if (mobileMenu) { mobileMenu.addEventListener('click',()=>{ 
+      sidebar.style.right='0'; 
+      overlay.style.display='block'; 
+    });
+   }
+    if (closeSide) closeSide.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
+    function closeMenu(){ 
+      sidebar.style.right='-260px';
+       overlay.style.display='none';
+       }
+    // Dark mode
+    let darkMode = localStorage.getItem('darkMode') === 'true';
+    const toggleBtn = document.getElementById('dom');
+    function applyTheme(){ document.body.classList.toggle('dark-mode', darkMode); if(toggleBtn) toggleBtn.textContent = darkMode ? '☀️' : '🌙'; }
+    applyTheme();
+    if(toggleBtn){ toggleBtn.addEventListener('click', ()=>{ darkMode = !darkMode; localStorage.setItem('darkMode', darkMode); applyTheme(); }); }
+    // WhatsApp + Appointment form
+    const WA_NUMBER = '917016037622';
+    const appointmentForm = document.getElementById('appointmentForm');
+    const waOpen = document.getElementById('waOpen');
+    const floatWa = document.getElementById('floatWa');
+    function buildWaUrl(name, phone, msg){ const text = `Appointment Request from ${name} (${phone}) - ${msg}`; return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`; }
+    if(appointmentForm){ appointmentForm.addEventListener('submit', function(e){ e.preventDefault(); const name = document.getElementById('name').value.trim(); const phone = document.getElementById('phone').value.trim(); const msg = document.getElementById('msg').value.trim() || 'Requesting appointment for digestive consultation'; if(!name || !phone || phone.length < 10){ alert('Please enter valid name and 10-digit mobile number'); return; } const url = buildWaUrl(name, phone, msg); window.open(url, '_blank'); this.reset(); }); }
+    if(waOpen) waOpen.href = `https://wa.me/${+917016037622}`; if(floatWa) floatWa.href = `https://wa.me/${+917016037622}`;
+    // IntersectionObserver to animate cards when visible
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          // small delay between cards
+          entry.target.style.transitionDelay = (entry.target.dataset.index * 80) + 'ms';
+        }
+      });
+    },{threshold:0.15});
+    document.querySelectorAll('.card').forEach((card, i)=>{ card.dataset.index = i; observer.observe(card); });
+    document.getElementById("dom").onclick = function() {
+    const poster = document.getElementById("digestivePoster");
+if (document.body.classList.contains("dark-mode")) {
+    // Light mode → Poster for light theme
+    poster.src = "digdark.png";
+} else {
+    // Dark mode → Poster for dark theme
+    poster.src = "dig.jpg";
+}
+    }
+  </script>
+</body>
+</html>

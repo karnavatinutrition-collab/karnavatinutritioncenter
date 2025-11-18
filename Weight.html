@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weight Management Program | Karnavati Nutrition Center</title>
+  <meta name="description"
+    content="Achieve and maintain your healthy weight through personalized, medicine-free guidance at Karnavati Nutrition Center, Ahmedabad." />
+  <link rel="icon" href="images/logo.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
+      background: linear-gradient(to bottom, #fefaf0, #fff);
+    }
+
+    /* -------------------------------------------------------------
+      FIRST CODE WALA HEADER — FULLY APPLIED HERE
+    --------------------------------------------------------------*/
+
+    :root {
+      --glass: rgba(255, 255, 255, 0.45);
+      --shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    }
+    body.dark-mode {
+      --glass: rgba(0, 0, 0, 0.45);
+      --shadow: 0 8px 40px rgba(255, 255, 255, 0.05);
+    }
+
+    header {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      top: 16px;
+      height: 80px;
+      z-index: 1200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Logo */
+    .navbar .logo{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .navbar .logo img {
+      width: auto;
+      height: 34px;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    /* Desktop Navigation */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1a5d3c;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #44a047;
+    }
+
+    /* Right Buttons */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      border: none;
+    }
+    .dom {
+      background: none;
+      border: 2px solid #1a5d3c;
+      color: #1a5d3c;
+    }
+
+    .dom:hover {
+      background: #1a5d3c;
+      color: white;
+    }
+
+    /* Mobile Menu Icon */
+    #mobile-menu {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* Mobile Sidebar */
+    #mobile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #1a5d3c;
+      padding-top: 60px;
+      transition: 0.4s;
+      z-index: 2000;
+    }
+
+    #mobile-sidebar ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    #mobile-sidebar ul li {
+      padding: 12px 0;
+    }
+
+    #mobile-sidebar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    #mobile-sidebar ul li a:hover {
+      color: #b5e6b7;
+    }
+
+    #close-sidebar {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Overlay */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 1500;
+    }
+    
+    /* Optional: Dark mode adjustment */
+@media (prefers-color-scheme: dark) {
+  .btn-dom {
+    border: 2px solid #1a5d3c; /* Same border in dark mode */
+    color: #1a5d3c;
+  }
+
+  .btn-dom:hover {
+    background: #1a5d3c;
+    color: #fff;
+  }
+}
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      #mobile-menu {
+        display: block;
+        color: #1a5d3c;
+      }
+    }
+
+    /* --------------------------------------------------------------
+      2ND PAGE STYLING (unchanged)
+    --------------------------------------------------------------*/
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 85vh;
+      background: linear-gradient(to right,
+          rgba(26, 93, 60, 0.85),
+          rgba(67, 160, 71, 0.85)),
+        url('https://images.unsplash.com/photo-1618221471632-b1f7e5dca7b2?auto=format&fit=crop&w=1600&q=80')
+          center/cover no-repeat;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 100px;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a5d3c;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .btn-dom {
+  background: none;
+  border: 2px solid #1a5d3c; /* Fixed color */
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-weight: 600;
+  color: #1a5d3c; /* Button text same as border */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-dom:hover {
+  background: #1a5d3c;
+  color: #fff;
+}
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background:#fff;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      transition:transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-card img{
+       width:100px;
+      height:100px;
+      object-fit:contain;
+      margin-bottom:15px;
+      border-radius:20px;
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .feature-card h3 {
+      color:#2575fc;
+      text-align:center;
+      margin-bottom:10px;
+    }
+    .feature-card p {
+      text-align:center;
+      font-size:0.95rem;
+      color:#555;
+    }
+    footer {
+      background: #1a5d3c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    
+    /* Program Options */
+    .options {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+      margin-top:2rem;
+    }
+    .option-card {
+      background:#fff;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      text-align:left;
+      transition:all 0.3s ease;
+    }
+    .option-card:hover { transform:translateY(-8px); }
+    .option-card h3 { color:#1a5d3c; margin-bottom:10px; }
+    .option-card ul { list-style:none; padding-left:15px; }
+    .option-card li::before { content:'✔'; color:#1a5d3c; margin-right:8px; }
+
+    /* BMI Calculator */
+    .bmi-box {
+      background:#fff;
+      max-width:500px;
+      margin:2rem auto;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      text-align:left;
+    }
+    label { font-weight:600; }
+    input, select {
+      width:100%;
+      padding:10px;
+      margin:8px 0 16px;
+      border:1px solid #ccc;
+      border-radius:8px;
+    }
+    button.calculate {
+      width:50%;
+      background:#1a5d3c;
+      color:white;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:transform 0.2s ease;
+    }
+    button.calculate:hover { background:#0c3a23; transform:scale(1.05); }
+    .bmi-result { text-align:center; font-weight:600; margin-top:20px; }
+    .bmi-gauge {
+      height:20px;
+      width:100%;
+      background:#eee;
+      border-radius:10px;
+      overflow:hidden;
+      margin-top:10px;
+    }
+    .bmi-fill {
+      height:100%;
+      width:0%;
+      background:#1a5d3c;
+      border-radius:10px;
+      transition:width 1s ease,background 0.5s ease;
+    }
+    .advice-box {
+      display:none;
+      margin-top:20px;
+      padding:20px;
+      background:#f5fff6;
+      border-radius:10px;
+      text-align:center;
+    }
+    /* Dark Mode Applied Globally */
+    body.dark-mode {
+      background:linear-gradient(to bottom,#0e1813,#1b1b1b);
+      color:#fff;
+    }
+    
+    body.dark-mode header {
+      background:rgba(0,0,0,0.45);
+  color: #fff;
+  box-shadow: 0 0.5px 10px rgba(255, 255, 255, 0.05);
+    }
+    body.dark-mode .desktop-nav ul li a {
+      color:#fff;
+    }
+    body.dark-mode .desktop-nav ul li a:hover {
+    color: #66ab68;
+}
+    body.dark-mode .feature-card {
+      background:#1f1f1f;
+      color:#fff;
+      box-shadow:0 0 10px rgba(255,255,255,0.1);
+    }
+
+    body.dark-mode .feature-card h3{
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode .feature-card h3:hover{
+      color: #2575fc;
+    }
+    body.dark-mode .hero p {
+      color: #555;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode .hero p:hover{
+       color: #fff;
+    }
+    body.dark-mode  p {
+      color: #555;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode  p:hover{
+       color: #fff;
+    }
+    
+    body.dark-mode .desktop-nav ul li a:hover { color:#66ab68; }
+
+    body.dark-mode h2 { color:#a3d9a5; }
+    body.dark-mode .option-card,
+    body.dark-mode .bmi-box {
+      background:#1f1f1f;
+      color:#fff;
+      box-shadow:0 0 10px rgba(255,255,255,0.1);
+    }
+    body.dark-mode input,
+    body.dark-mode select {
+      background:#222;
+      color:#fff;
+      border:1px solid #555;
+    }
+    /* keep unit dropdown text white always */
+    body.dark-mode select {
+      color:#fff !important;
+      background:#333;
+    }
+    body.dark-mode label { color:#ddd; }
+    body.dark-mode .bmi-gauge { background:#333; }
+    body.dark-mode .advice-box { background:#223322; color:#fff; }
+    body.dark-mode .btn-dom {
+      border-color:#a3d9a5;
+      color:#a3d9a5;
+    }
+    body.dark-mode .btn-dom:hover {
+      background:#a3d9a5;
+      color:#121212;
+    }
+    body.dark-mode footer {
+      background: #121212;
+      color: #9adf99;
+    }
+
+
+/* Tablet */
+@media (max-width:992px){
+  .nav-links{gap:22px;}
+  .navbar{height:75px;}
+  .navbar .logo img{height:30px;}
+  .btn-dom{padding:5px 12px;font-size:14px;}
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .desktop-nav{display:none;}
+  .navbar{height:70px;padding:10px 18px;}
+  .navbar .logo img{height:28px;}
+
+  /* Theme toggle and menu grouped */
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .btn-dom{
+    padding:4px 10px;
+    font-size:13px;
+  }
+  .menu-toggle{display:block;}
+}
+
+/* Extra Small */
+@media (max-width:480px){
+  .navbar{height:65px;padding:8px 14px;}
+  .navbar .logo img{height:24px;}
+  .btn-dom{padding:4px 9px;font-size:12px;}
+  .header-right{gap:8px;}
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- --------------------------------------------
+       FIRST CODE HEADER FULLY REPLACED HERE
+  --------------------------------------------- -->
+  <header class="navbar">
+    <div class="logo"> 
+       <img src="logo-knc.webp" alt="KNC Logo">
+      </div>
+
+  <nav class="desktop-nav">
+    <ul class="nav-links">
+      <li><a href="Karnavatinutrtitioncenter.html#home">Home</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#plans">Programs Options</a></li>
+      <li><a href="#bmi">Health Checkup</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    </nav>
+
+    <div class="header-right">
+      <button id="dom" class="btn-dom">🌙</button>
+      <span id="mobile-menu">☰</span>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobile-sidebar">
+    <span id="close-sidebar">×</span>
+    <ul>
+      <li><a href="Karnavatinutrtitioncenter.html#home" onclick="closeSidebar()">Home</a></li>
+      <li><a href="#program" onclick="closeSidebar()">Program</a></li>
+      <li><a href="#plans" onclick="closeSidebar()">Program Options</a></li>
+      <li><a href="#bmi" onclick="closeSidebar()">Health Checkup</a></li>
+      <li><a href="#cta" onclick="closeSidebar()">Contact</a></li>
+    </ul>
+  </div>
+
+  <div id="overlay"></div>
+
+<section class="hero" id="hero">
+  <h1>Weight Management Program</h1>
+  <p>Personalized nutrition, lifestyle guidance, and expert support to help you reach your ideal weight naturally and sustainably.</p>
+</section>
+
+<section id="program">
+  <h2>What Our Program Includes</h2>
+  <p>Each plan at Karnavati Nutrition Center is designed to transform your lifestyle through practical nutrition and daily balance.</p>
+  <div class="features">
+    <div class="feature-card"><img src="Customized Plain.svg" alt=""><h3>Customized Diet Plans</h3><p>Tailored to your body type, routine, and preferences for long-term success.</p></div>
+    <div class="feature-card"><img src="yoga.svg" alt=""><h3>Fitness & Yoga Integration</h3><p>Holistic approach combining nutrition with suitable exercise routines.</p></div>
+    <div class="feature-card"><img src="followup.svg" alt=""><h3>Follow-up Consultations</h3><p>Regular progress tracking and guidance to help you stay motivated.</p></div>
+    <div class="feature-card"><img src="healthy lifestyle.svg" alt=""><h3>Yoga & Lifestyle Support</h3><p>Guided yoga sessions and mindfulness training to enhance physical and emotional wellness.</p></div>
+  </div>
+</section>
+
+<section id="plans">
+  <h2>Program Options</h2>
+  <p>Choose a focus area that best suits your health goals.</p>
+  <div class="options">
+    <div class="option-card"><h3>💚 Weight Loss Plan</h3><ul><li>Fat reduction through balanced nutrition</li><li>Customized calorie and protein goals</li><li>Weekly progress monitoring</li></ul></div>
+    <div class="option-card"><h3>🍽️ Weight Gain Plan</h3><ul><li>Healthy, high-calorie nutrition</li><li>Muscle gain through guided training</li><li>Monthly follow-up support</li></ul></div>
+    <div class="option-card"><h3>⚡ Metabolic Boost Program</h3><ul><li>Improve digestion and metabolism</li><li>Balanced energy meal patterns</li><li>Stress and sleep optimization</li></ul></div>
+  </div>
+</section>
+
+<section id="bmi">
+  <h2>Check Your BMI</h2>
+  <p>Calculate your Body Mass Index (BMI) to understand your weight category.</p>
+  <div class="bmi-box">
+    <label>Height:</label>
+    <input type="number" id="height" placeholder="Enter height" required>
+    <select id="heightUnit"><option value="cm">cm</option><option value="inch">inches</option></select>
+    <label>Weight:</label>
+    <input type="number" id="weight" placeholder="Enter weight" required>
+    <select id="weightUnit"><option value="kg">kg</option><option value="lb">lbs</option></select>
+    <button class="calculate" id="calcBtn">Calculate BMI</button>
+    <div class="bmi-result" id="bmiResult"></div>
+    <div class="bmi-gauge"><div class="bmi-fill" id="bmiFill"></div></div>
+    <div class="advice-box" id="adviceBox"></div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Start Your Transformation</h2>
+  <p>Book your personalized consultation and begin your journey toward a balanced, healthier life.</p>
+  <a href="https://wa.me/917016037622?text=Hello%20Karnavati%20Nutrition%20Center%2C%20I%27m%20interested%20in%20your%20Weight%20Management%20Program." target="_blank">
+    <button class="calculate">📞 Contact Our Team</button>
+  </a>
+</section>
+
+<footer>&copy; 2025 Karnavati Nutrition Center</footer>
+
+  <script>
+    /* ---------------------------------------------------------
+         HEADER JS — FIRST CODE (FULLY APPLIED)
+    --------------------------------------------------------- */
+
+    let darkMode = localStorage.getItem("darkMode") === "true";
+    const toggleBtn = document.getElementById("dom");
+
+    function applyTheme() {
+      document.body.classList.toggle("dark-mode", darkMode);
+      toggleBtn.textContent = darkMode ? "☀️" : "🌙";
+    }
+
+    applyTheme();
+
+    toggleBtn.addEventListener("click", () => {
+      darkMode = !darkMode;
+      localStorage.setItem("darkMode", darkMode);
+      applyTheme();
+    });
+
+    const mobileMenu = document.getElementById("mobile-menu");
+    const sidebar = document.getElementById("mobile-sidebar");
+    const overlay = document.getElementById("overlay");
+    const closeSide = document.getElementById("close-sidebar");
+
+    mobileMenu.addEventListener("click", () => {
+      sidebar.style.right = "0";
+      overlay.style.display = "block";
+    });
+
+    closeSide.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    function closeMenu() {
+      sidebar.style.right = "-250px";
+      overlay.style.display = "none";
+    }
+    
+document.getElementById("calcBtn").addEventListener("click",()=>{
+  const h=parseFloat(document.getElementById("height").value);
+  const w=parseFloat(document.getElementById("weight").value);
+  const hUnit=document.getElementById("heightUnit").value;
+  const wUnit=document.getElementById("weightUnit").value;
+  if(!h||!w){alert("Please enter both height and weight.");return;}
+  let heightM=hUnit==="cm"?h/100:h*0.0254;
+  let weightKg=wUnit==="kg"?w:w*0.4536;
+  const bmi=(weightKg/(heightM**2)).toFixed(1);
+  const fill=document.getElementById("bmiFill");
+  const res=document.getElementById("bmiResult");
+  const adv=document.getElementById("adviceBox");
+  let cat="",color="";
+  if(bmi<18.5){cat="Underweight";color="#3b82f6";}
+  else if(bmi<25){cat="Normal";color="#22c55e";}
+  else if(bmi<30){cat="Overweight";color="#f59e0b";}
+  else { 
+    cat = "Obese"; 
+    color = "#ef4444"; 
+  }
+  
+  // Update BMI result & gauge
+  res.textContent = `Your BMI is ${bmi} (${cat})`;
+  fill.style.width = Math.min(bmi * 3, 100) + "%";
+  fill.style.background = color;
+
+  // Show advice box
+  adv.style.display = "block";
+  switch (cat) {
+    case "Underweight":
+      adv.innerHTML = "<h4>💡 Advice:</h4><p>Eat calorie-dense foods and include strength training to gain healthy weight.</p>";
+      break;
+    case "Normal":
+      adv.innerHTML = "<h4>✅ Great!</h4><p>Maintain your healthy routine with balanced meals and regular activity.</p>";
+      break;
+    case "Overweight":
+      adv.innerHTML = "<h4>💪 Advice:</h4><p>Focus on portion control and include 30 mins of exercise daily.</p>";
+      break;
+    case "Obese":
+      adv.innerHTML = "<h4>⚠️ Important:</h4><p>Adopt a structured plan with expert guidance to improve metabolic health.</p>";
+      break;
+  }
+});
+  </script>
+</body>
+
+</html>
